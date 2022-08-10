@@ -6,14 +6,16 @@ use Illuminate\View\Component;
 
 class Table extends Component
 {
+    public array $headers;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $headers)
     {
-        //
+        //assigns table headers via props passed within the component
+        $this->headers = $headers;
     }
 
     /**
