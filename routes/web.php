@@ -28,9 +28,9 @@ Route::get('/admin/dataModels', function () {
     return view('admin.dataModels');
 })->middleware(['auth'])->name('admin.dataModels');
 
-Route::get('/admin/siteContent', function () {
-    return view('admin.siteContent');
-})->middleware(['auth'])->name('admin.siteContent');
+Route::get('/admin/content', function () {
+    return view('admin.content');
+})->middleware(['auth'])->name('admin.content');
 
 Route::get('/admin/playground', function () {
     return view('admin.playground');
