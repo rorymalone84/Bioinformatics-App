@@ -5,6 +5,7 @@
         >
             {{ __("Users") }}
         </h2>
+        <x-filter placeholder="Search for name or role"/>
     </x-slot>
 
     <div class="py-12">
