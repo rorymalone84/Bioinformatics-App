@@ -8,8 +8,7 @@
         <x-filter placeholder="Search for name or role"/>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <x-page.section heading="Click on a name to view">
             <div class="overflow-x-auto w-full">
                 <x-table.table :headers="['Name','Role','Models']">
                     @foreach($users as $user)
@@ -46,8 +45,7 @@
                     @endforeach
                 </x-table.table>
             </div>
-        </div>
-    </div>
+    </x-page.section>
 
     {{ $users->links() }}
 </x-app-layout>
