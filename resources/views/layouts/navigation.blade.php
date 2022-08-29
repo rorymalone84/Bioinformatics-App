@@ -24,13 +24,13 @@
                     </x-nav-link>
 
                     @role('doctor')
-                    <x-nav-link :href="route('doctors.DMindex')" :active="request()->routeIs('doctors.DMindex')">
+                    <x-nav-link :href="route('doctor.DMindex')" :active="request()->routeIs('doctor.DMindex')">
                         {{ __('My Data Models') }}
                     </x-nav-link>
                     @endrole
 
                     @role('admin')                    
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
                         {{ __('Users') }}
                     </x-nav-link>
                     
@@ -98,13 +98,13 @@
             </x-responsive-nav-link>
 
             @role('doctor')
-            <x-responsive-nav-link :href="route('doctors.DMindex')" :active="request()->routeIs('doctors.DMindex')">
+            <x-responsive-nav-link :href="route('doctor.DMindex')" :active="request()->routeIs('doctor.DMindex')">
                 {{ __('My Data Models') }}
             </x-responsive-nav-link>
             @endrole
 
             @role('admin')
-            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+            <x-responsive-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
                 {{ __('Users') }}
             </x-responsive-nav-link>
 

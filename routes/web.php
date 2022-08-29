@@ -24,30 +24,34 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin/users', [UserController::class, 'index'])->name('users.index')->middleware(['auth']);
+Route::get('/playground', function () {
+    return view('playground');
+})->middleware(['auth'])->name('playground');
 
 Route::get('/dataModels', function () {
     return view('dataModels.index');
 })->middleware(['auth'])->name('dataModels.index');
 
-//doctor
 
-Route::get('/doctors/DMindex', function () {
-    return view('doctors.DMindex');
-})->middleware(['auth'])->name('doctors.DMindex');
+//admin role routes
+Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
 
-//admin
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    
+    Route::get('/permitMenu', function () {
+        return view('admin.permits');
+    })->name('permits');
 
-Route::get('/admin/content', function () {
-    return view('admin.content');
-})->middleware(['auth'])->name('admin.content');
+    Route::get('/content', function () {
+        return view('admin.content');
+    })->name('content');
+});
 
-Route::get('/admin/permitMenu', function () {
-    return view('admin.permits');
-})->middleware(['auth','role:admin'])->name('admin.permits');
-
-Route::get('/admin/playground', function () {
-    return view('admin.playground');
-})->middleware(['auth'])->name('admin.playground');
+//doctor role routes
+Route::middleware(['auth', 'role:doctor'])->name('doctor.')->prefix('doctor')->group(function(){
+    Route::get('/DMindex', function () {
+        return view('doctors.DMindex');
+    })->name('DMindex');    
+});
 
 require __DIR__.'/auth.php';
