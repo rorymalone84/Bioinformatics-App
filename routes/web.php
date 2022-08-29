@@ -44,7 +44,7 @@ Route::get('/admin/content', function () {
 
 Route::get('/admin/permitMenu', function () {
     return view('admin.permits');
-})->middleware(['auth'])->name('admin.permits');
+})->middleware(['auth','role:admin'])->name('admin.permits');
 
 Route::get('/admin/playground', function () {
     return view('admin.playground');
