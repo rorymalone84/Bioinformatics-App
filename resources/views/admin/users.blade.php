@@ -30,7 +30,9 @@
                         <td class="px-6 py-4 text-center">
                             <div class="flex items-center space-x-3">
                                 <div>
-                                    <p class="dark:text-fuchsia-300">admin</p>
+                                    <p class="dark:text-fuchsia-300">
+                                        {{$user->getRoleNames()->implode(', '); }}
+                                    </p>
                                 </div>
                             </div>
                         </td>

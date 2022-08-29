@@ -18,16 +18,30 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    
-                    <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
+
+                    <x-nav-link :href="route('dataModels.index')" :active="request()->routeIs('dataModels.index')">
+                        {{ __('All Models') }}
+                    </x-nav-link>
+
+                    @role('doctor')
+                    <x-nav-link :href="route('doctors.DMindex')" :active="request()->routeIs('doctors.DMindex')">
+                        {{ __('My Data Models') }}
+                    </x-nav-link>
+                    @endrole
+
+                    @role('admin')                    
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Users') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.dataModels')" :active="request()->routeIs('admin.dataModels')">
-                        {{ __('Data Models') }}
-                    </x-nav-link>
+                    
                     <x-nav-link :href="route('admin.content')" :active="request()->routeIs('admin.content')">
                         {{ __('App Content') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin.permits')" :active="request()->routeIs('admin.permits')">
+                        {{ __('Permits') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
@@ -79,15 +93,29 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
+            <x-responsive-nav-link :href="route('dataModels.index')" :active="request()->routeIs('dataModels.index')">
+                {{ __('All Data Models') }}
+            </x-responsive-nav-link>
+
+            @role('doctor')
+            <x-responsive-nav-link :href="route('doctors.DMindex')" :active="request()->routeIs('doctors.DMindex')">
+                {{ __('My Data Models') }}
+            </x-responsive-nav-link>
+            @endrole
+
+            @role('admin')
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                 {{ __('Users') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('admin.dataModels')">
-                {{ __('Data Models') }}
-            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('admin.content')" :active="request()->routeIs('admin.content')">
                 {{ __('Content') }}
             </x-responsive-nav-link>
+            
+            <x-responsive-nav-link :href="route('admin.permits')" :active="request()->routeIs('admin.permits')">
+                {{ __('Permits') }}
+            </x-responsive-nav-link>
+            @endrole
         </div>
 
         <!-- Responsive Settings Options -->

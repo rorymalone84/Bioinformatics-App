@@ -15,11 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest();
+        $users = User::latest()->with('roles');
 
         if(request('search')){
             $users->where('name', 'like', '%'. request('search') . '%');
-            //->orWhere('role', 'like', '%' . request('role') . '%');
         }
 
         $results = $users->paginate(10);
