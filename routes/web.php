@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users')->middleware(['auth']);
@@ -31,6 +31,10 @@ Route::get('/admin/dataModels', function () {
 Route::get('/admin/content', function () {
     return view('admin.content');
 })->middleware(['auth'])->name('admin.content');
+
+Route::get('/admin/permitMenu', function () {
+    return view('admin.permitMenu');
+})->middleware(['auth'])->name('admin.permitMenu');
 
 Route::get('/admin/playground', function () {
     return view('admin.playground');

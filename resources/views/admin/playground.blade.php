@@ -33,7 +33,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="underline mb-6">Experiment with Code Result</h1>
+                    <!-- script to experiment in -->
                     <py-script> print(1+1) </py-script>
+                    <!-- end of script -->
                 </div>
             </div>
         </div>
