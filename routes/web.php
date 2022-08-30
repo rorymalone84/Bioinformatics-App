@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +38,7 @@ Route::get('/dataModels', function () {
 //admin role routes
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
 
-    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
     
     Route::get('/permitMenu', function () {
         return view('admin.permits');
@@ -45,6 +47,9 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     Route::get('/content', function () {
         return view('admin.content');
     })->name('content');
+
+    Route::resource('/roles', RoleController::class);
+    Route::resource('/permissions', PermissionController::class);
 });
 
 //doctor role routes

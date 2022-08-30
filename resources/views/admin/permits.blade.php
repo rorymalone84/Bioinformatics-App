@@ -7,9 +7,9 @@
 
     <x-page.section heading="Update user roles and permissions here">
         <x-menu-grid-wrap>            
-            <x-menu-card cardHeading="Roles">Create and edit user roles here</x-menu-card>
-            <x-menu-card cardHeading="Permissions">Create edit or assign user roles here</x-menu-card>
-            <x-menu-card cardHeading="Dashboard">return to the dashboard</x-menu-card>
+            <x-menu-card cardHeading="Roles" href="{{ route('admin.roles.index')}}" >Create and edit user roles here</x-menu-card>
+            <x-menu-card cardHeading="Permissions" href="{{ route('admin.permissions.index')}}">Create edit or assign user roles here</x-menu-card>
+            <x-menu-card cardHeading="Dashboard" href="{{ route('dashboard')}}" >return to the dashboard</x-menu-card>
         </x-menu-grid-wrap>
     </x-page.section>
 </x-app-layout>

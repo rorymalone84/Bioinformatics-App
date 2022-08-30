@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
-    //
+    //displays permissions index
+    public function index(){
+        $permissions = Permission::all();
+        return view('admin.permissions.index', compact('permissions'));
+    }
 }

@@ -30,7 +30,7 @@
                     @endrole
 
                     @role('admin')                    
-                    <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
+                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                         {{ __('Users') }}
                     </x-nav-link>
                     
@@ -104,7 +104,7 @@
             @endrole
 
             @role('admin')
-            <x-responsive-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
+            <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                 {{ __('Users') }}
             </x-responsive-nav-link>
 

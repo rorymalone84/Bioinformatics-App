@@ -23,7 +23,7 @@ class UserController extends Controller
 
         $results = $users->paginate(10);
 
-        return view('admin.users')->with('users', $results);
+        return view('admin.users.index')->with('users', $results);
     }
 
     /**
