@@ -24,11 +24,14 @@ x-bind:class="{'dark': darkMode}"
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-700">
-            @include('layouts.navigation')
-            
+            @include('layouts.navigation')            
 
             <!-- Page Heading -->
             <header class="bg-white shadow dark:bg-gray-800 ">
+                <!-- notification banner -->
+                @if (Session::has('message'))
+                    <x-notification-banner/>                    
+                @endif
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
                     {{ $header }}
                 </div>                

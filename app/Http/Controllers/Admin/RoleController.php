@@ -11,7 +11,7 @@ class RoleController extends Controller
     //displays roles index 
     public function index(){
         //display all roles except for admin and doctor, as these are required to remain as they are
-        $roles = Role::whereNotIn('name', ['admin','doctor'])->get();
+        $roles = Role::all();
         return view('admin.roles.index', compact('roles'));
     }
 
@@ -34,6 +34,6 @@ class RoleController extends Controller
     public function update(Request $request, Role $role){
         $validate = $request->validate(['name' => ['required', 'min:3','max:20']]);
         $role->update($validate);
-        return to_route('admin.roles.index', $validate);
+        return to_route('admin.roles.index', $validate)->with('message','Role sucessfully updated');
     }
 }

@@ -8,7 +8,7 @@
         </div>        
     </x-slot>
 
-    <x-page.section heading="Manage Roles here">
+    <x-page.section heading="Manage Roles here (admin not included)">
         <div class="overflow-x-auto w-full">            
             <x-table.table :headers="['Role','']">
                 @foreach($roles as $role)
@@ -22,8 +22,10 @@
                     </td>
                     <td class="px-6 py-4 flex justify-end">
                         <div class="flex">
+                            @if($role->name !== 'admin')
                             <x-page.link-button href="{{route('admin.roles.edit', $role->id)}}" class="bg-blue-600 text-blue-100 dark:bg-blue-200 dark:text-black">Edit</x-page.link-button>
-                            <x-page.link-button href="{{route('admin.roles.destroy', $role->id)}}" class="bg-red-600 text-blue-100 dark:bg-red-700 dark:text-grey-100">Delete</x-page.link-button>                    
+                            <x-page.link-button href="{{route('admin.roles.destroy', $role->id)}}" class="bg-red-600 text-blue-100 dark:bg-red-700 dark:text-grey-100">Delete</x-page.link-button>
+                            @endif           
                         </div>
                     </td>
                 </tr>
