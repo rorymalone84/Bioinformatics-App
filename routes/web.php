@@ -36,7 +36,7 @@ Route::get('/dataModels', function () {
 
 
 //admin role routes
-Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
+Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function(){
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     
