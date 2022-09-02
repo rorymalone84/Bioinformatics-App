@@ -10,7 +10,8 @@ class RoleController extends Controller
 {
     //displays roles index 
     public function index(){
-        $roles = Role::all();
+        //display all roles except for admin and doctor, as these are required to remain as they are
+        $roles = Role::whereNotIn('name', ['admin','doctor']);
         return view('admin.roles.index', compact('roles'));
     }
 
