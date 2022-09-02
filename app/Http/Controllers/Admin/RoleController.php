@@ -11,7 +11,7 @@ class RoleController extends Controller
     //displays roles index 
     public function index(){
         //display all roles except for admin and doctor, as these are required to remain as they are
-        $roles = Role::whereNotIn('name', ['admin','doctor']);
+        $roles = Role::whereNotIn('name', ['admin','doctor'])->get();
         return view('admin.roles.index', compact('roles'));
     }
 
