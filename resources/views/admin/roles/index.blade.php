@@ -22,8 +22,8 @@
                     </td>
                     <td class="px-6 py-4 flex justify-end">
                         <div class="flex">
-                            <x-page.link-button href="/dashboard" class="bg-blue-600 text-blue-100 dark:bg-blue-200 dark:text-black">Edit</x-page.link-button>
-                            <x-page.link-button href="/dashboard" class="bg-red-600 text-blue-100 dark:bg-red-700 dark:text-grey-200">Delete</x-page.link-button>                         
+                            <x-page.link-button href="{{route('admin.roles.edit', $role->id)}}" class="bg-blue-600 text-blue-100 dark:bg-blue-200 dark:text-black">Edit</x-page.link-button>
+                            <x-page.link-button href="{{route('admin.roles.destroy', $role->id)}}" class="bg-red-600 text-blue-100 dark:bg-red-700 dark:text-grey-100">Delete</x-page.link-button>                    
                         </div>
                     </td>
                 </tr>
