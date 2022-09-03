@@ -23,7 +23,7 @@ class PermissionController extends Controller
         $validate = $request->validate(['name' => ['required', 'min:3','max:20']]);
         Permission::create($validate);
 
-        return to_route('admin.permissions.index');
+        return to_route('admin.permissions.index')->with('message','New Permission sucessfully created');
     }
 
     public function edit(Permission $permission){
@@ -33,10 +33,11 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission){
         $validate = $request->validate(['name' => ['required', 'min:3','max:20']]);
         $permission->update($validate);
-        return to_route('admin.permissions.index', $validate);
+        return to_route('admin.permissions.index', $validate)->with('message','Permission sucessfully updated');
     }
 
     public function destroy(Permission $permission){
-                
+        $permission->delete();
+        return to_route('admin.permissions.index')->with('message','Permission sucessfully deleted');
     }
 }

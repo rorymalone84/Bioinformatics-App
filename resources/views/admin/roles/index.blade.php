@@ -24,7 +24,12 @@
                         <div class="flex">
                             @if($role->name !== 'admin')
                             <x-page.link-button href="{{route('admin.roles.edit', $role->id)}}" class="bg-blue-600 text-blue-100 dark:bg-blue-200 dark:text-black">Edit</x-page.link-button>
-                            <x-page.link-button href="{{route('admin.roles.destroy', $role->id)}}" class="bg-red-600 text-blue-100 dark:bg-red-700 dark:text-grey-100">Delete</x-page.link-button>
+                            
+                            <form method="POST" action="{{ route('admin.roles.destroy', $role->id)}}" onsubmit="return confirm('Are you sure you wish to delete {{ $role->name }}?')" >
+                                @csrf
+                                @method('delete')
+                                <button class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+                            </form>
                             @else
                             <h3 class="font-semibold text-sm text-gray-800 leading-tight dark:text-blue-100">
                                 {{ __('Admin role cant be updated') }}
